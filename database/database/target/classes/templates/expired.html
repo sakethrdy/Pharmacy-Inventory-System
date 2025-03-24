@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy Inventory - Expired Medicines</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/add}">Add Medicine</a>
+        <a th:href="@{/update}">Update Medicine</a>
+        <a th:href="@{/delete}">Delete Medicine</a>
+        <a th:href="@{/search}">Search Medicine</a>
+        <a th:href="@{/batch}">Batch Update</a>
+        <a th:href="@{/expired}">Expired Medicines</a>
+        <a th:href="@{/ai-suggest}">AI Suggest</a>
+    </div>
+    <div class="content">
+        <h1>Expired Medicines</h1>
+        <table th:if="${medicines != null and not #lists.isEmpty(medicines)}">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Expiry Date</th>
+            </tr>
+            <tr th:each="medicine : ${medicines}">
+                <td th:text="${medicine.id}"></td>
+                <td th:text="${medicine.name}"></td>
+                <td th:text="${medicine.expiryDate}"></td>
+            </tr>
+        </table>
+        <p th:if="${medicines == null or #lists.isEmpty(medicines)}">No expired medicines found.</p>
+    </div>
+</body>
+</html>

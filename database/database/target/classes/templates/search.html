@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy Inventory - Search Medicine</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/add}">Add Medicine</a>
+        <a th:href="@{/update}">Update Medicine</a>
+        <a th:href="@{/delete}">Delete Medicine</a>
+        <a th:href="@{/search}">Search Medicine</a>
+        <a th:href="@{/batch}">Batch Update</a>
+        <a th:href="@{/expired}">Expired Medicines</a>
+        <a th:href="@{/ai-suggest}">AI Suggest</a>
+    </div>
+    <div class="content">
+        <h1>Search Medicine</h1>
+        <form th:action="@{/search}" method="post">
+            <label>Name: <input type="text" name="name" required></label><br>
+            <button type="submit">Search</button>
+        </form>
+        <table th:if="${medicines != null and not #lists.isEmpty(medicines)}">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr th:each="medicine : ${medicines}">
+                <td th:text="${medicine.id}"></td>
+                <td th:text="${medicine.name}"></td>
+                <td th:text="${medicine.description}"></td>
+                <td th:text="'₹' + ${medicine.price}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

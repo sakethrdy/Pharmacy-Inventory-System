@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    min-height: 100vh;
+}
+
+.navbar {
+    background: #0277bd;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;         /* Use flexbox for layout */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center;    /* Center the items vertically */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;        /* Maintain horizontal spacing between links */
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding-top: 60px;
+    text-align: center;
+}
+
+h1 {
+    color: #0277bd;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #0288d1;
+    margin-bottom: 15px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    color: #01579b;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #b0bec5;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #0288d1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0277bd;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #b0bec5;
+}
+
+th {
+    background: #0288d1;
+    color: white;
+}
+
+.message {
+    color: #d81b60;
+    margin: 10px 0;
+}

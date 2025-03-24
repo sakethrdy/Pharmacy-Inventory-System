@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy Inventory - AI Suggest</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/add}">Add Medicine</a>
+        <a th:href="@{/update}">Update Medicine</a>
+        <a th:href="@{/delete}">Delete Medicine</a>
+        <a th:href="@{/search}">Search Medicine</a>
+        <a th:href="@{/batch}">Batch Update</a>
+        <a th:href="@{/expired}">Expired Medicines</a>
+        <a th:href="@{/ai-suggest}">AI Suggest</a>
+    </div>
+    <div class="content">
+        <h1>AI Medicine Suggestion</h1>
+        <form th:action="@{/ai-suggest}" method="post">
+            <label>Describe Your Problem: <textarea name="problem" rows="4" cols="50" required placeholder="E.g., I have a headache and fever"></textarea></label><br>
+            <button type="submit">Get Suggestion</button>
+        </form>
+        <div th:if="${suggestion}">
+            <h2>Suggested Medicine</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Expiry Date</th>
+                </tr>
+                <tr>
+                    <td th:text="${suggestion.id}"></td>
+                    <td th:text="${suggestion.name}"></td>
+                    <td th:text="${suggestion.description}"></td>
+                    <td th:text="'₹' + ${suggestion.price}"></td>
+                    <td th:text="${suggestion.stockQuantity}"></td>
+                    <td th:text="${suggestion.expiryDate}"></td>
+                </tr>
+            </table>
+        </div>
+        <p th:if="${message}" th:text="${message}" class="message"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy Inventory - Delete Medicine</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/add}">Add Medicine</a>
+        <a th:href="@{/update}">Update Medicine</a>
+        <a th:href="@{/delete}">Delete Medicine</a>
+        <a th:href="@{/search}">Search Medicine</a>
+        <a th:href="@{/batch}">Batch Update</a>
+        <a th:href="@{/expired}">Expired Medicines</a>
+        <a th:href="@{/ai-suggest}">AI Suggest</a>
+    </div>
+    <div class="content">
+        <h1>Delete Medicine</h1>
+        <form th:action="@{/delete}" method="post">
+            <label>ID: <input type="number" name="id" required></label><br>
+            <button type="submit">Delete Medicine</button>
+        </form>
+        <p th:if="${message}" th:text="${message}" class="message"></p>
+    </div>
+</body>
+</html>

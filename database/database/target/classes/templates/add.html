@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy Inventory - Add Medicine</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/add}">Add Medicine</a>
+        <a th:href="@{/update}">Update Medicine</a>
+        <a th:href="@{/delete}">Delete Medicine</a>
+        <a th:href="@{/search}">Search Medicine</a>
+        <a th:href="@{/batch}">Batch Update</a>
+        <a th:href="@{/expired}">Expired Medicines</a>
+        <a th:href="@{/ai-suggest}">AI Suggest</a>
+    </div>
+    <div class="content">
+        <h1>Add New Medicine</h1>
+        <form th:action="@{/add}" method="post">
+            <label>ID: <input type="number" name="id" required></label><br>
+            <label>Name: <input type="text" name="name" required></label><br>
+            <label>Description: <input type="text" name="description"></label><br>
+            <label>Price: <input type="number" step="0.01" name="price" required></label><br>
+            <label>Stock Quantity: <input type="number" name="stockQuantity" required></label><br>
+            <label>Expiry Date (YYYY-MM-DD): <input type="date" name="expiryDate" required></label><br>
+            <button type="submit">Add Medicine</button>
+        </form>
+        <p th:if="${message}" th:text="${message}" class="message"></p>
+    </div>
+</body>
+</html>
